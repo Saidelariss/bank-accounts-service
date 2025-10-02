@@ -3,17 +3,22 @@ package com.bank.accounts.application.service;
 import com.bank.accounts.application.port.inbound.CreateAccountUseCase;
 import com.bank.accounts.application.port.outbound.CreateAccountPort;
 import com.bank.accounts.domain.model.Account;
-import com.bank.accounts.domain.model.AccountNumber;
+import com.bank.accounts.domain.model.AccountId;
+import com.bank.accounts.domain.model.Money;
 
-import java.time.Instant;
+import java.math.BigDecimal;
 
 public class CreateAccountService implements CreateAccountUseCase {
     private final CreateAccountPort createAccountPort;
-    @Override
-    public AccountNumber create(String customerId, String accountNumber, String currency) {
-        Account account = new Account(customerId, accountNumber, currency, Instant.now());
-        AccountNumber accountNumber = createAccountPort.save(account);
 
-        return accountNumber;
+    public CreateAccountService(CreateAccountPort createAccountPort) {
+        this.createAccountPort = createAccountPort;
     }
+
+    @Override
+    public AccountId create(String customerId) {
+        Account account = new Account(AccountId.newId(), customerId, new Money(BigDecimal.ZERO));
+        return createAccountPort.save(account).getId();
+    }
+
 }

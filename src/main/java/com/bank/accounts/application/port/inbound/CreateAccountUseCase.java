@@ -1,7 +1,7 @@
 package com.bank.accounts.application.port.inbound;
 
-import com.bank.accounts.domain.model.AccountNumber;
+import com.bank.accounts.domain.model.AccountId;
 
 public interface CreateAccountUseCase {
-    AccountNumber create(String customerId, String accountNumber, String currency);
+    AccountId create(String customerId);
 }
