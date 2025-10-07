@@ -5,6 +5,7 @@ import com.bank.accounts.domain.model.AccountId;
 import com.bank.accounts.domain.model.Money;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "accounts")
 public class AccountJpaEntity {
     @Id
     private UUID id;
