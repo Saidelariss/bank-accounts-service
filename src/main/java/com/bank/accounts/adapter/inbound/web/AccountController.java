@@ -1,5 +1,6 @@
 package com.bank.accounts.adapter.inbound.web;
 
+import com.bank.accounts.adapter.inbound.dto.AccountOperationRequest;
 import com.bank.accounts.adapter.inbound.dto.AccountResponse;
 import com.bank.accounts.adapter.inbound.dto.CreateAccountRequest;
 import com.bank.accounts.application.port.inbound.CreateAccountUseCase;
@@ -8,6 +9,7 @@ import com.bank.accounts.application.port.inbound.DebitAccountUseCase;
 import com.bank.accounts.application.port.inbound.GetBalanceUseCase;
 import com.bank.accounts.domain.model.AccountId;
 import com.bank.accounts.domain.model.Money;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,15 +33,15 @@ public class AccountController {
     }
 
     @PostMapping("/{id}/credit")
-    public ResponseEntity<Void> credit(@PathVariable UUID id, @RequestBody BigDecimal amount) {
-        creditAccountUseCase.credit(new AccountId(id), amount);
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<Void> credit(@PathVariable UUID id, @RequestBody @Valid AccountOperationRequest request) {
+        creditAccountUseCase.credit(new AccountId(id), request.amount());
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{id}/debit")
-    public ResponseEntity<Void> debit(@PathVariable UUID id, @RequestBody BigDecimal amount) {
-        debitAccountUseCase.debit(new AccountId(id), amount);
-        return ResponseEntity.accepted().build();
+    public ResponseEntity<Void> debit(@PathVariable UUID id, @RequestBody @Valid AccountOperationRequest request) {
+        debitAccountUseCase.debit(new AccountId(id), request.amount());
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}/balance")
