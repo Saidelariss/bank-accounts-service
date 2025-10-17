@@ -16,8 +16,8 @@ public class CreateAccountService implements CreateAccountUseCase {
     }
 
     @Override
-    public AccountId create(String customerId) {
-        Account account = new Account(AccountId.newId(), customerId, new Money(BigDecimal.ZERO));
+    public AccountId create(String customerId, BigDecimal amount) {
+        Account account = new Account(AccountId.newId(), customerId, new Money(amount));
         return createAccountPort.save(account).getId();
     }
 

@@ -27,8 +27,8 @@ public class AccountController {
     private final DebitAccountUseCase debitAccountUseCase;
 
     @PostMapping
-    public ResponseEntity<AccountResponse> create(@RequestBody CreateAccountRequest request) {
-        AccountId accountId = createAccountUseCase.create(request.customerId());
+    public ResponseEntity<AccountResponse> create(@RequestBody @Valid CreateAccountRequest request) {
+        AccountId accountId = createAccountUseCase.create(request.customerId(),request.amount());
         return ResponseEntity.ok(new AccountResponse(accountId.value(), BigDecimal.ZERO));
     }
 
