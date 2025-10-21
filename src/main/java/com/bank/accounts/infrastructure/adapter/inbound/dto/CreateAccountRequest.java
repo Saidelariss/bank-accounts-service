@@ -1,4 +1,4 @@
-package com.bank.accounts.adapter.inbound.dto;
+package com.bank.accounts.infrastructure.adapter.inbound.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

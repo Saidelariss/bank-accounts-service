@@ -1,4 +1,4 @@
-package com.bank.accounts.adapter.inbound.web;
+package com.bank.accounts.infrastructure.adapter.inbound.web;
 
 import com.bank.accounts.domain.exception.InsufficientBalanceException;
 import com.bank.accounts.domain.exception.InvalidMoneyAmountException;

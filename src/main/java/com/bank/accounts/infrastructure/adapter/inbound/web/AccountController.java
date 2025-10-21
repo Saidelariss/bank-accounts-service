@@ -1,8 +1,8 @@
-package com.bank.accounts.adapter.inbound.web;
+package com.bank.accounts.infrastructure.adapter.inbound.web;
 
-import com.bank.accounts.adapter.inbound.dto.AccountOperationRequest;
-import com.bank.accounts.adapter.inbound.dto.AccountResponse;
-import com.bank.accounts.adapter.inbound.dto.CreateAccountRequest;
+import com.bank.accounts.infrastructure.adapter.inbound.dto.AccountOperationRequest;
+import com.bank.accounts.infrastructure.adapter.inbound.dto.AccountResponse;
+import com.bank.accounts.infrastructure.adapter.inbound.dto.CreateAccountRequest;
 import com.bank.accounts.application.port.inbound.CreateAccountUseCase;
 import com.bank.accounts.application.port.inbound.CreditAccountUseCase;
 import com.bank.accounts.application.port.inbound.DebitAccountUseCase;

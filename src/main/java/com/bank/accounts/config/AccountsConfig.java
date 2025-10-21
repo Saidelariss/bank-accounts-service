@@ -1,7 +1,7 @@
 package com.bank.accounts.config;
 
-import com.bank.accounts.adapter.outbound.persistence.AccountJpaRepository;
-import com.bank.accounts.adapter.outbound.persistence.AccountPersistenceAdapter;
+import com.bank.accounts.infrastructure.adapter.outbound.persistence.AccountJpaRepository;
+import com.bank.accounts.infrastructure.adapter.outbound.persistence.AccountPersistenceAdapter;
 import com.bank.accounts.application.port.inbound.CreateAccountUseCase;
 import com.bank.accounts.application.port.inbound.CreditAccountUseCase;
 import com.bank.accounts.application.port.inbound.DebitAccountUseCase;

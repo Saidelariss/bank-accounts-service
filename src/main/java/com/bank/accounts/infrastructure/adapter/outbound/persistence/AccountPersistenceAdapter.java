@@ -1,4 +1,4 @@
-package com.bank.accounts.adapter.outbound.persistence;
+package com.bank.accounts.infrastructure.adapter.outbound.persistence;
 
 import com.bank.accounts.application.port.outbound.CreateAccountPort;
 import com.bank.accounts.application.port.outbound.CreditAccountPort;

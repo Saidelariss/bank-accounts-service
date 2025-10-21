@@ -1,4 +1,4 @@
-package com.bank.accounts.adapter.outbound.persistence;
+package com.bank.accounts.infrastructure.adapter.outbound.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
